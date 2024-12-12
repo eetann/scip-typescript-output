@@ -1,11 +1,12 @@
 {
-  "name": "stockmanagementdomain",
+  "name": "scip-typescript-output",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx ts-node src/Presentation/Express/index.ts"
+    "dl-proto": "curl https://raw.githubusercontent.com/sourcegraph/scip/refs/heads/main/scip.proto > scip.proto",
+    "index": "scip-typescript index",
+    "decode": "protoc --decode=scip.Index scip.proto < index.scip > output.log"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +29,7 @@
   },
   "dependencies": {
     "@prisma/client": "^5.6.0",
+    "@sourcegraph/scip-typescript": "^0.3.14",
     "express": "^4.18.2",
     "lodash": "^4.17.21",
     "nanoid": "^3.3.6",
